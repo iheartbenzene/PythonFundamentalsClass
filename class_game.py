@@ -50,6 +50,15 @@ class Player(object):
         your_level = whatever // 50  # using // to get the floor aka rounding down after dividing
         return your_level
 
+# Create player 1
+p1 = Player('Chuano')
+# Create player 2
+p2 = Player('Marley', lives=2, health=150)
+
+# print(p1.name)
+# print(p2.name)
+
+
 # Player inventory mechanics
 class Inventory_items(object):
     
@@ -58,7 +67,7 @@ class Inventory_items(object):
     def __init__(self, inventory = [], items = []):
         self.__inventory = inventory
         self.__items = items
-        Inventory_items.add_item()
+        Inventory_items.add_item(items)
     
     def display_items(self):
         print(f'You have {len(self.inventory)} items in your inventory.')  # single quote works with f strings too
@@ -67,11 +76,16 @@ class Inventory_items(object):
             for item in self.inventory:  # looping through each position (item) in the sequence (inventory)
                 print(item)
     
-    def add_item(self):
-        __item_count += len(self.items)
+    def add_item(self, items):
+        for item in items:
+            items.append(item)
+            __item_count += 1
     
     def remove_item(self):
         pass
+
+new_item = Inventory_items(inventory = [], items = ['apple'])
+print(new_item.display_items())
 
 # Create Child class from Parent class
 class NPC(Player):
@@ -116,16 +130,7 @@ class NPC(Player):
     
 # Create NPC
 NPC1 = NPC('Appleseed')
-
 # print(NPC1.name)
-
-# Create player 1
-p1 = Player('Chuano')
-# Create player 2
-p2 = Player('Marley', lives=2, health=150)
-
-# print(p1.name)
-# print(p2.name)
 
 # -- game functionality -- #
 
