@@ -60,9 +60,10 @@ class Inventory_items(object):
     
     def __init__(self, inventory = [], items = []):
         self.__inventory = inventory
-        self.__items = items
-        Inventory_items.add_item(items)
+        self.__loot = loot
+        Inventory_items.add_item(loot)
     
+    @staticmethod
     def display_items(self):
         print(f'You have {len(self.inventory)} items in your inventory.')  # single quote works with f strings too
         if len(self.inventory) > 0:
@@ -70,15 +71,17 @@ class Inventory_items(object):
             for item in self.inventory:  # looping through each position (item) in the sequence (inventory)
                 print(item)
     
+    @staticmethod
     def add_item(self, items):
         for item in items:
             items.append(item)
             __item_count += 1
     
+    @staticmethod
     def remove_item(self):
         pass
 
-new_item = Inventory_items(inventory = [], items = ['apple'])
+new_item = Inventory_items(inventory = [], loot = ['apple'])
 print(new_item.display_items())
 
 # Create Child class from Parent class
@@ -119,8 +122,8 @@ class NPC(Player):
         NPC.__Coins += 3
         
     # @staticmethod
-    # # def __SetNpcCount():
-    # #     NPC.__NPCCount += 1    
+    # def __SetNpcCount():
+    #     NPC.__NPCCount += 1    
     
 # Create NPC
 NPC1 = NPC('Appleseed')
